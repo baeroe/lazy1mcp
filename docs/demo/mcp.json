@@ -1,0 +1,83 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "pnpm",
+      "args": [
+        "dlx",
+        "@modelcontextprotocol/server-filesystem",
+        "~/projects"
+      ],
+      "tags": [
+        "files"
+      ]
+    },
+    "github": {
+      "transport": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer demo-token-not-real"
+      },
+      "tags": [
+        "code"
+      ],
+      "disabledTools": [
+        "delete_file",
+        "merge_pull_request"
+      ]
+    },
+    "context7": {
+      "command": "context7-mcp",
+      "tags": [
+        "docs"
+      ]
+    },
+    "playwright": {
+      "command": "playwright-mcp",
+      "args": [
+        "--browser",
+        "chromium",
+        "--headless"
+      ],
+      "requestTimeout": 300000,
+      "tags": [
+        "browser"
+      ]
+    },
+    "postgres": {
+      "command": "postgres-mcp",
+      "args": [
+        "--read-only"
+      ],
+      "env": {
+        "DATABASE_URL": "postgres://shop:demo@localhost:5432/shop",
+        "PGSSLMODE": "disable"
+      },
+      "tags": [
+        "db"
+      ]
+    },
+    "linear": {
+      "command": "mcp-remote",
+      "args": [
+        "https://mcp.linear.app/mcp"
+      ],
+      "tags": [
+        "tickets"
+      ]
+    },
+    "memory": {
+      "command": "memory-mcp",
+      "tags": [
+        "notes"
+      ]
+    },
+    "sentry": {
+      "transport": "http",
+      "url": "https://mcp.sentry.dev/mcp",
+      "tags": [
+        "errors"
+      ],
+      "disabled": true
+    }
+  }
+}
